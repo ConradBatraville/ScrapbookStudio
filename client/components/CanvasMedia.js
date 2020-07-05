@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react'
 import {Image} from 'react-konva'
-import useImage from 'use-image'
 import {connect} from 'react-redux'
 import { updateSingleMediaThunk, getSingleMedia } from '../store/content';
 import { updateCurrentMediaThunk } from '../store/currentMedia';
