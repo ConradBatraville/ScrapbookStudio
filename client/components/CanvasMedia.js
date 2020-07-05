@@ -24,20 +24,14 @@ class CanvasMedia extends Component {
         this.image.removeEventListener('load', this.handleLoad);
       }
       loadImage() {
-        // save to "this" to remove "load" handler on unmount/////
         this.image = new window.Image();
         this.image.src = this.props.src;
         this.image.addEventListener('load', this.handleLoad);
       }
       handleLoad = () => {
-        // after setState react-konva will update canvas and redraw the layer/////
-        // because "image" property is changed/////
         this.setState({
           image: this.image
         });
-        // if you keep same image object during source updates/////
-        // you will have to update layer manually://///
-        // this.imageNode.getLayer().batchDraw();/////
       };
 
       handleOnDragMove = (event) => {
@@ -53,13 +47,6 @@ class CanvasMedia extends Component {
       }
 
       handleOnDragEnd (event) {
-        console.log('target x:', event.target.x())
-        console.log('target y:', event.target.y())
-        console.log('target scale-x:', event.target.scaleX())
-        console.log('target scale-y:', event.target.scaleY())
-        console.log('rotation:', event.target.rotation())
-
-
         this.props.updateMedia(this.props.id, {
           xCoord: event.target.x(),
           yCoord: event.target.y(),
@@ -70,7 +57,6 @@ class CanvasMedia extends Component {
       }
 
       handleOnMouseOver = (event) => {
-        console.log('ID in handleMouseOver:', this.props.id)
         this.props.setSelectedMedia(this.props.id)
         this.props.updateMediaOnDrag({
           xCoord: event.target.x(),
@@ -82,61 +68,24 @@ class CanvasMedia extends Component {
       }
 
       render() {
-        console.log('******IN RENDER')
         return (
           <Fragment>
-            {/* {this.props.id === this.props.selectedMedia ?
-         <Image
-         x={this.props.xCoordCurrent}
-         y={this.props.yCoordCurrent}
-         scaleX={this.props.widthCurrent}
-         scaleY={this.props.heightCurrent}
-         rotation={this.props.rotationCurrent}
-         image={this.state.image}
-         ref={node => {
-           this.imageNode = node;
-         }}
-         name={this.props.name}
-         draggable
-         onMouseOver={this.handleOnMouseOver}
-         onDragMove={this.handleOnDragMove}
-         onDragEnd={this.handleOnDragEnd}
-
-       /> :
-            <Image
-            x={this.props.xCoord}
-            y={this.props.yCoord}
-            scaleX={this.props.width}
-            scaleY={this.props.height}
-            rotation={this.props.rotation}
-            image={this.state.image}
-            ref={node => {
-              this.imageNode = node;
-            }}
-            name={this.props.name}
-            draggable
-            onMouseOver={this.handleOnMouseOver}
-            onDragMove={this.handleOnDragMove}
-            onDragEnd={this.handleOnDragEnd}
-          />
-          } */}
-
-          <Image
-            x={this.props.xCoord}
-            y={this.props.yCoord}
-            scaleX={this.props.width}
-            scaleY={this.props.height}
-            rotation={this.props.rotation}
-            image={this.state.image}
-            ref={node => {
-              this.imageNode = node;
-            }}
-            name={this.props.name}
-            draggable
-            onMouseOver={this.handleOnMouseOver}
-            onDragMove={this.handleOnDragMove}
-            onDragEnd={this.handleOnDragEnd}
-          />
+              <Image
+                x={this.props.xCoord}
+                y={this.props.yCoord}
+                scaleX={this.props.width}
+                scaleY={this.props.height}
+                rotation={this.props.rotation}
+                image={this.state.image}
+                ref={node => {
+                  this.imageNode = node;
+                }}
+                name={this.props.name}
+                draggable
+                onMouseOver={this.handleOnMouseOver}
+                onDragMove={this.handleOnDragMove}
+                onDragEnd={this.handleOnDragEnd}
+              />
           </Fragment>
         );
       }
@@ -152,14 +101,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-  // xCoordCurrent: state.currentMedia.xCoord,
-  // yCoordCurrent: state.currentMedia.yCoord,
-  // widthCurrent: state.currentMedia.width,
-  // heightCurrent: state.currentMedia.height,
-  // rotationCurrent: state.currentMedia.rotation,
   selectedMedia: state.content.selectedMedia
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CanvasMedia)
-// export default CanvasMedia
+export default connect(mapStateToProps, mapDispatchToProps)(CanvasMedia);
