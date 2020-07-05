@@ -1,0 +1,100 @@
+body {
+  font-family: sans-serif;
+}
+
+.launch-page {
+  background: url("./login_background.png") no-repeat center center fixed; 
+  background-size: cover;
+  height: 1200px;
+  width: 100%;
+}
+
+.login-header {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 3em;
+  padding-top: 4%;
+  text-transform: uppercase;
+  letter-spacing: 13px;
+}
+
+.site-description {
+  margin-top: 0.5em;
+  text-align: center;
+  font-size: 1.5em;
+  color: rgb(133, 133, 133);
+}
+
+.login-form {
+  opacity: 0.9;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1em;
+}
+
+form div {
+  margin: 1em;
+  display: inline-block;
+}
+
+.centered-forms {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+.space {
+  margin-bottom: 15px;
+}
+
+.space-button {
+  margin-right: 15px;
+}
+
+.canvas {
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 100px;
+  text-align: center;
+}
+
+.add-page-button {
+  margin-bottom: -1.47rem;
+}
+
+.toolbar {
+  width: 20rem;
+}
+
+
+@media only screen and (max-height: 1200px) {
+  .login-form {
+    opacity: 0.9;
+    margin-top: -1%;
+  }
+}
+
+
+#library-outer-container {
+  width: 750px
+}
+
+#library-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
