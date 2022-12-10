@@ -40,7 +40,7 @@
     "cloudinary-react": "^1.1.0",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-session": "^1.15.1",
     "history": "^4.9.0",
     "immutable": "^4.0.0-rc.12",
